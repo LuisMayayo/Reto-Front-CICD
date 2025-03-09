@@ -31,7 +31,7 @@ jobs:
       id: docker_meta
       uses: docker/metadata-action@v5
       with:
-        images: marcoslarraga04/ecommerce-frontend
+        images: marcoslarraga04/ecommerce-front
         flavor: |
           latest=false
         tags: |
