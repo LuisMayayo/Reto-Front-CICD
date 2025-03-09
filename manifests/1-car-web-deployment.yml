@@ -34,6 +34,6 @@ spec:
     spec:
       containers:
       - name: car-web
-        image: marcoslarraga04/ecommerce-frontend:v13  # 🔄 Usa la nueva versión
+        image: marcoslarraga04/ecommerce-frontend:v14  # 🔄 Usa la nueva versión
         ports:
         - containerPort: 80  # 🔄 Mantén el puerto 80 si usas NGINX
