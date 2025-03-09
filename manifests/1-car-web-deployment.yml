@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: car-web-svc
+  labels:
+    app: car-web
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: car-web
+    tier: frontend
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: car-web-deploy
+  labels:
+    app: car-web
+spec:
+  selector:
+    matchLabels:
+      app: car-web
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: car-web
+        tier: frontend
+    spec:
+      containers:
+      - name: car-web
+        image: marcoslarraga04/ecommerce-frontend:v13  # 🔄 Usa la nueva versión
+        ports:
+        - containerPort: 80  # 🔄 Mantén el puerto 80 si usas NGINX
